@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <title>Web Crawler</title>
+</head>
+<body class="bg-[#080B38]">
+<section class="flex content-center flex-col items-center gap-4">
+    <h1 class="text-5xl mt-10 text-[#7231a3] font-bold">Web Crawler</h1>
+    <div class="flex flex-row text-center text-white gap-4">
+        <div class="flex flex-col gap-4">
+            <label class="text-2xl">
+                <span class="font-bold">URL:</span>
+                <input type="text" id="urlInput" placeholder="Enter URL" class="p-1 pl-2 rounded-xl text-black">
+            </label>
+            <button id="crawlButton" class="w-full border-2 border-[#522377] bg-[#522377] h-10 rounded-full text-2xl font-bold hover:bg-[#36195B] transition-all">Crawl</button>
+        </div>
+        <div class="flex flex-col">
+            <label class="text-2xl font-bold gap-8">
+                File Format:
+                <select id="formatSelect" class="text-black w-40 rounded-xl">
+                    <option value="pdf">PDF</option>
+                    <option value="excel">Excel</option>
+                </select>
+            </label>
+            <div class="mt-4 flex flex-col text-center items-center ">
+                <button id="downloadButton" class="">
+                    <img src="assets/svg/download.svg" alt="download" height="60" width="60">
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="../renderer.js"></script>
+</body>
+</html>
