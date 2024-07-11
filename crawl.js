@@ -1,4 +1,30 @@
 import { JSDOM } from "jsdom";
+import axios from "axios";
+
+export const crawlPage = async (currentURL) => {
+  console.log("actively crawling:", currentURL);
+  try {
+    const response = await axios.get(currentURL);
+    if (response.status > 399) {
+      return console.error(
+        `error in fetch in status code: ${response.status} on page: ${currentURL}`,
+      );
+    }
+
+    const contentType = response.headers.get("content-type");
+    if (!contentType.includes("text/html")) {
+      return console.error(
+        `non html response, content-type: ${contentType} on page: ${currentURL}`,
+      );
+    }
+
+    console.log(response.data);
+  } catch (e) {
+    console.error(
+      `error when fetching data ${e.message} on page: ${currentURL}`,
+    );
+  }
+};
 
 export const getURLsFromHTML = (htmlBody, baseURL) => {
   const urls = [];
